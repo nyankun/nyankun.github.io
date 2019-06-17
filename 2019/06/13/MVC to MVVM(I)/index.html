@@ -133,7 +133,7 @@
     </script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>暴打王晶冰</title>
+    <title> | 暴打王晶冰</title>
   </head>
   <body itemscope itemtype="http://schema.org/WebPage" lang="default" data-spy="scroll" data-target=".list-group">
     
@@ -154,7 +154,7 @@
       <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="Toggle Navbar"></i></a>
       <ul id="menu" role="menubar" aria-hidden="false">
         
-        <li role="menuitem"><a href="/" class="current"><i class="fas fa-home"></i><span class="menu-text">Home</span></a></li>
+        <li role="menuitem"><a href="/"><i class="fas fa-home"></i><span class="menu-text">Home</span></a></li>
         
         <li role="menuitem"><a href="/archives/"><i class="fas fa-archive"></i><span class="menu-text">Archives</span></a></li>
         
@@ -169,25 +169,22 @@
         <div class="main-container">
           <div class="content">
             
-
-<div id="index" class="index page">
+<div id="post" class="page">
   
   <article class="article post card" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
       <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/13/MVC to MVVM(I)/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <meta itemprop="name" content="Nyankun">
-        <meta itemprop="description" content>
-        <meta itemprop="image" content="/images/avatar.png">
+       <meta itemprop="name" content="Nyankun">
+       <meta itemprop="description" content>
+       <meta itemprop="image" content="/images/avatar.png">
       </span>
       <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-        <meta itemprop="name" content="暴打王晶冰">
+       <meta itemprop="name" content="暴打王晶冰">
       </span>
     </div>
     <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/06/13/MVC to MVVM(I)/" itemprop="url"></a>
-      </h1>
+      <h1 class="post-title" itemprop="name headline"></h1>
       <div class="post-meta">
         
         <span class="post-date">
@@ -199,7 +196,6 @@
       </div>
     </header>
     <main class="post-main" itemprop="articleBody">
-      
       <h1 id="MVC-to-MVVM（I）"><a href="#MVC-to-MVVM（I）" class="headerlink" title="MVC to MVVM（I）"></a>MVC to MVVM（I）</h1><p>###I’m not sure if there would be a second episode (x<br>I have been using MVC for three years since I learned iOS development. However, I tried to turn to MVVM these days, which makes our project structure more clearly.</p>
 <p>Let’s just cut to the chase.</p>
 <blockquote>
@@ -233,58 +229,23 @@
 <p>Obviously, the biggest difference is in <em>MVC</em>, we write the code which is for dealling with the data in the View code, but in <em>MVVM</em>, we do the same operation in the ViewModel code, exactly when the viewModel is initialized with a model.</p>
 <p>We may can not get the adavantage of using <em>MVVM</em>, but if there are several parameters that we need to deal with, and we write all these code in <em>MVC</em>, it may be a bit mess. However, in <em>MVVM</em>, the viewModel is like a bridge between Model and View, we can make our code much more clear and easier to be understood by using <em>MVVM</em>.</p>
 
-      
     </main>
     <footer class="post-footer">
       
     </footer>
   </article>
   
-  <article class="article post card" itemscope itemtype="http://schema.org/Article">
-    <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/05/hello-world/">
-      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <meta itemprop="name" content="Nyankun">
-        <meta itemprop="description" content>
-        <meta itemprop="image" content="/images/avatar.png">
-      </span>
-      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-        <meta itemprop="name" content="暴打王晶冰">
-      </span>
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2019/05/05/hello-world/" rel="next" title="Hello World"><i class="fas fa-angle-left"></i><span class="nav-title">Hello World</span></a>
+      
     </div>
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/05/05/hello-world/" itemprop="url">Hello World</a>
-      </h1>
-      <div class="post-meta">
-        
-        <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-05-05T12:46:40+10:00">2019-05-05 12:46:40</time></span>
-        </span>
-        
-        
-        
-      </div>
-    </header>
-    <main class="post-main" itemprop="articleBody">
+    <div class="page-nav-prev page-nav-item">
       
-      <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">"My New Post"</span><br></code></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </main>
-    <footer class="post-footer">
-      
-    </footer>
-  </article>
-  
+    </div>
+  </nav>
   
   
 </div>
@@ -330,6 +291,17 @@
 
 
   <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>Table of Contents</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#MVC-to-MVVM（I）"><span class="toc-text">MVC to MVVM（I）</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Example"><span class="toc-text">Example</span></a></li></ol></li></ol></div>
+    </div>
+    
     
     
     <hr>
