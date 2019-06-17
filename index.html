@@ -174,7 +174,7 @@
   
   <article class="article post card" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/13/MVC to MVVM(I)/">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/17/MVC to MVVM(I)/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
         <meta itemprop="name" content="Nyankun">
         <meta itemprop="description" content>
@@ -186,12 +186,12 @@
     </div>
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/06/13/MVC to MVVM(I)/" itemprop="url">MVC to MVVM ( I )</a>
+        <a class="post-title-link post-title-link-external" href="/2019/06/17/MVC to MVVM(I)/" itemprop="url">MVC to MVVM ( I )</a>
       </h1>
       <div class="post-meta">
         
         <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-06-13T14:05:20+10:00">2019-06-13 14:05:20</time></span>
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-06-17T12:48:23+10:00">2019-06-17 12:48:23</time></span>
         </span>
         
         
@@ -200,41 +200,9 @@
     </header>
     <main class="post-main" itemprop="articleBody">
       
-      <p>###I’m not sure if there would be a second episode (x<br>I have been using MVC for three years since I learned iOS development. However, I tried to turn to MVVM these days, which makes our project structure more clearly.</p>
-<p>Let’s just cut to the chase.</p>
-<blockquote>
-<p>MVC means ‘ Model-View-Controller ‘.</p>
-<p>MVVM means ‘ Model-View-ViewModel ‘.</p>
-</blockquote>
-<p>###Differences<br>Obviously, we should find out what’s the differences between these two design patterns if we want to change from MVC to MVVM.</p>
-<ul>
-<li><strong>Model</strong></li>
-</ul>
-<p>In MVC, <em>Model</em> is a class containing the properties we need, and if we want to show some information we want on View, we may not only get the values from model, and also need to add them to some other information.</p>
-<p>In MVVM, <em>Model</em> is almost the same as it in MVC, which contains the properties we need, but if we want to show information by using <em>MVVM</em>, there is something different from <em>MVC</em>.</p>
-<ul>
-<li><strong>View</strong></li>
-</ul>
-<p><em>View</em> is what we should let users see. And if we want to show some information or data on the views, as I’ve said above, we use Model in MVC, and use ViewModel in MVVM, so let’s talk about the ViewModel.</p>
-<ul>
-<li><strong>ViewModel</strong></li>
-</ul>
-<p>After we get data and create model to contain it, then we also create a viewModel in <em>MVVM</em>, we change the data into what we want to show on the views, and use viewModel to contain them, so we can only use viewModel directly in the code which we write to deal with views.</p>
-<p>–</p>
-<h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><p>Here are two periods of code, one of which is written in MVC and the other is written in MVVM.</p>
-<ul>
-<li><p><strong>MVC</strong></p>
-<figure class="hljs highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs swift"><span class="hljs-comment">//Model	</span><br><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Model</span> </span>&#123;<br>    <span class="hljs-keyword">let</span> id:<span class="hljs-type">Int</span><br>    <span class="hljs-keyword">init</span>(asdId:<span class="hljs-type">Int</span>) &#123;<br>     <span class="hljs-keyword">self</span>.id = asdId<br>    &#125;<br>&#125;<br><br><span class="hljs-comment">//TableViewCell</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CustomTableViewCell</span>: <span class="hljs-title">UITableViewCell</span> </span>&#123;<br>    <br>    <span class="hljs-keyword">let</span> showLabel = <span class="hljs-type">UILabel</span>()<br>    <br>    <span class="hljs-keyword">override</span> <span class="hljs-keyword">init</span>(style: <span class="hljs-type">UITableViewCell</span>.<span class="hljs-type">CellStyle</span>, reuseIdentifier: <span class="hljs-type">String?</span>) &#123;<br>        <span class="hljs-keyword">super</span>.<span class="hljs-keyword">init</span>(style: style, reuseIdentifier: reuseIdentifier)<br>        <br>        showLabel.textColor = rgbColor(r: <span class="hljs-number">183</span>, g: <span class="hljs-number">123</span>, b: <span class="hljs-number">58</span>)<br>        showLabel.font = <span class="hljs-type">UIFont</span>.systemFont(ofSize: <span class="hljs-number">12</span>)<br>       <br>        <span class="hljs-keyword">self</span>.contentView.addSubview(showLabel)<br>        showLabel.snp.makeConstraints &#123; (make) <span class="hljs-keyword">in</span><br>            make.top.equalTo(<span class="hljs-number">10</span>)<br>            make.bottom.equalTo(-<span class="hljs-number">5</span>)<br>            make.leading.equalTo(<span class="hljs-number">8</span>)<br>            make.trailing.equalTo(-<span class="hljs-number">8</span>)<br>        &#125;<br>        <br>    &#125;<br>    <br>    <span class="hljs-keyword">required</span> <span class="hljs-keyword">init</span>?(coder aDecoder: <span class="hljs-type">NSCoder</span>) &#123;<br>        <span class="hljs-built_in">fatalError</span>(<span class="hljs-string">"init(coder:) has not been implemented"</span>)<br>    &#125;<br>  <br>    <span class="hljs-keyword">var</span> model:<span class="hljs-type">Model!</span> &#123;<br>        <span class="hljs-keyword">didSet</span>&#123;<br>            <span class="hljs-keyword">self</span>.showLabel.text = <span class="hljs-string">"line"</span> + <span class="hljs-type">String</span>(model.id)<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-</li>
-<li><p><strong>MVVM</strong></p>
-</li>
-</ul>
-<figure class="hljs highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs swift"><span class="hljs-comment">// ViewModel</span><br><span class="hljs-type">Struct</span> <span class="hljs-type">ViewModel</span>&#123;<br>  <span class="hljs-keyword">let</span> showTxt:<span class="hljs-type">String!</span><br>  <br>  <span class="hljs-keyword">init</span>(model:<span class="hljs-type">Model</span>)&#123;<br>    <span class="hljs-keyword">self</span>.showTxt = <span class="hljs-string">"line"</span> + <span class="hljs-type">String</span>(model.id)<br>  &#125;<br>&#125;<br><br><span class="hljs-comment">// TableViewCell</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CustomTableViewCell</span>: <span class="hljs-title">UITableViewCell</span> </span>&#123;<br>    <br>    <span class="hljs-keyword">let</span> showLabel = <span class="hljs-type">UILabel</span>()<br>    <br>    <span class="hljs-keyword">override</span> <span class="hljs-keyword">init</span>(style: <span class="hljs-type">UITableViewCell</span>.<span class="hljs-type">CellStyle</span>, reuseIdentifier: <span class="hljs-type">String?</span>) &#123;<br>        <span class="hljs-keyword">super</span>.<span class="hljs-keyword">init</span>(style: style, reuseIdentifier: reuseIdentifier)<br>        <br>        showLabel.textColor = rgbColor(r: <span class="hljs-number">183</span>, g: <span class="hljs-number">123</span>, b: <span class="hljs-number">58</span>)<br>        showLabel.font = <span class="hljs-type">UIFont</span>.systemFont(ofSize: <span class="hljs-number">12</span>)<br>       <br>        <span class="hljs-keyword">self</span>.contentView.addSubview(showLabel)<br>        showLabel.snp.makeConstraints &#123; (make) <span class="hljs-keyword">in</span><br>            make.top.equalTo(<span class="hljs-number">10</span>)<br>            make.bottom.equalTo(-<span class="hljs-number">5</span>)<br>            make.leading.equalTo(<span class="hljs-number">8</span>)<br>            make.trailing.equalTo(-<span class="hljs-number">8</span>)<br>        &#125;<br>        <br>    &#125;<br>    <br>    <span class="hljs-keyword">required</span> <span class="hljs-keyword">init</span>?(coder aDecoder: <span class="hljs-type">NSCoder</span>) &#123;<br>        <span class="hljs-built_in">fatalError</span>(<span class="hljs-string">"init(coder:) has not been implemented"</span>)<br>    &#125;<br>  <br>    <span class="hljs-keyword">var</span> viewModel:<span class="hljs-type">ViewModel!</span> &#123;<br>        <span class="hljs-keyword">didSet</span>&#123;<br>            <span class="hljs-keyword">self</span>.showLabel.text = viewModel.showTxt<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-<p>Obviously, the biggest difference is in <em>MVC</em>, we write the code which is for dealling with the data in the View code, but in <em>MVVM</em>, we do the same operation in the ViewModel code, exactly when the viewModel is initialized with a model.</p>
-<p>We may can not get the adavantage of using <em>MVVM</em>, but if there are several parameters that we need to deal with, and we write all these code in <em>MVC</em>, it may be a bit mess. However, in <em>MVVM</em>, the viewModel is like a bridge between Model and View, we can make our code much more clear and easier to be understood by using <em>MVVM</em>.</p>
-
+      <p> I’m not sure if there would be a second episode (x<br>I have been using MVC for three years since I learned iOS development. However, I tried to turn to MVVM these days, which makes our project structure more clearly.<br>
       
-    </main>
+    </p></main>
     <footer class="post-footer">
       
     </footer>

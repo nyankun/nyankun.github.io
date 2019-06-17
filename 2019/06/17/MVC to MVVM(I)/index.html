@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    
+    <meta name="keywords" content="Life, ARIA, Hexo">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="暴打王晶冰" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/clipboard.min.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var cb = null;
+      var els = $(".post figure.highlight");
+      if (els.length) {
+        // Enabled Hexo highlight line number.
+        $(els).each(function (i, e) {
+          $(e).before("<button class=\"copy button\">Copy</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout with line number.
+              return trigger.nextElementSibling.firstChild.firstChild.firstChild.lastChild.firstChild.firstChild;
+          }
+        });
+      } else {
+        // Disabled Hexo highlight line number.
+        els = $(".post pre code");
+        $(els).each(function (i, e) {
+          // Add button before pre, not code.
+          $(e).parent().before("<button class=\"copy button\">Copy</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout without line number.
+              return trigger.nextElementSibling.firstChild;
+          }
+        });
+      }
+      cb.on("success", function (e) {
+        e.clearSelection();
+        var trigger = e.trigger;
+        // Change button text as a user tip.
+        trigger.innerHTML = "Copied";
+        $(trigger).addClass("copied");
+        // Change button text back;
+        setTimeout(function () {
+          trigger.innerHTML = "Copy";
+          $(trigger).removeClass("copied");
+        }, 1500);
+      });
+    });
+    </script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>MVC to MVVM ( I ) | 暴打王晶冰</title>
+  </head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="default" data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">暴打王晶冰</a></h1>
+        <h2 class="subtitle"></h2>
+      </div>
+      
+      <div class="logo">
+        <img src="/images/logo.png" alt="logo">
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="Toggle Navbar"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/"><i class="fas fa-home"></i><span class="menu-text">Home</span></a></li>
+        
+        <li role="menuitem"><a href="/archives/"><i class="fas fa-archive"></i><span class="menu-text">Archives</span></a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/17/MVC to MVVM(I)/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Nyankun">
+       <meta itemprop="description" content>
+       <meta itemprop="image" content="/images/avatar.png">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="暴打王晶冰">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">MVC to MVVM ( I )</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-06-17T12:48:23+10:00">2019-06-17 12:48:23</time></span>
+        </span>
+        
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <p> I’m not sure if there would be a second episode (x<br>I have been using MVC for three years since I learned iOS development. However, I tried to turn to MVVM these days, which makes our project structure more clearly.<br><a id="more"></a><br>Let’s just cut to the chase.</p>
+<blockquote>
+<p>MVC means ‘ Model-View-Controller ‘.</p>
+<p>MVVM means ‘ Model-View-ViewModel ‘.</p>
+</blockquote>
+<p>###Differences<br>Obviously, we should find out what’s the differences between these two design patterns if we want to change from MVC to MVVM.</p>
+<ul>
+<li><strong>Model</strong></li>
+</ul>
+<p>In MVC, <em>Model</em> is a class containing the properties we need, and if we want to show some information we want on View, we may not only get the values from model, and also need to add them to some other information.</p>
+<p>In MVVM, <em>Model</em> is almost the same as it in MVC, which contains the properties we need, but if we want to show information by using <em>MVVM</em>, there is something different from <em>MVC</em>.</p>
+<ul>
+<li><strong>View</strong></li>
+</ul>
+<p><em>View</em> is what we should let users see. And if we want to show some information or data on the views, as I’ve said above, we use Model in MVC, and use ViewModel in MVVM, so let’s talk about the ViewModel.</p>
+<ul>
+<li><strong>ViewModel</strong></li>
+</ul>
+<p>After we get data and create model to contain it, then we also create a viewModel in <em>MVVM</em>, we change the data into what we want to show on the views, and use viewModel to contain them, so we can only use viewModel directly in the code which we write to deal with views.</p>
+<p>–</p>
+<h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><p>Here are two periods of code, one of which is written in MVC and the other is written in MVVM.</p>
+<ul>
+<li><p><strong>MVC</strong></p>
+<figure class="hljs highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs swift"><span class="hljs-comment">//Model	</span><br><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Model</span> </span>&#123;<br>    <span class="hljs-keyword">let</span> id:<span class="hljs-type">Int</span><br>    <span class="hljs-keyword">init</span>(asdId:<span class="hljs-type">Int</span>) &#123;<br>     <span class="hljs-keyword">self</span>.id = asdId<br>    &#125;<br>&#125;<br><br><span class="hljs-comment">//TableViewCell</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CustomTableViewCell</span>: <span class="hljs-title">UITableViewCell</span> </span>&#123;<br>    <br>    <span class="hljs-keyword">let</span> showLabel = <span class="hljs-type">UILabel</span>()<br>    <br>    <span class="hljs-keyword">override</span> <span class="hljs-keyword">init</span>(style: <span class="hljs-type">UITableViewCell</span>.<span class="hljs-type">CellStyle</span>, reuseIdentifier: <span class="hljs-type">String?</span>) &#123;<br>        <span class="hljs-keyword">super</span>.<span class="hljs-keyword">init</span>(style: style, reuseIdentifier: reuseIdentifier)<br>        <br>        showLabel.textColor = rgbColor(r: <span class="hljs-number">183</span>, g: <span class="hljs-number">123</span>, b: <span class="hljs-number">58</span>)<br>        showLabel.font = <span class="hljs-type">UIFont</span>.systemFont(ofSize: <span class="hljs-number">12</span>)<br>       <br>        <span class="hljs-keyword">self</span>.contentView.addSubview(showLabel)<br>        showLabel.snp.makeConstraints &#123; (make) <span class="hljs-keyword">in</span><br>            make.top.equalTo(<span class="hljs-number">10</span>)<br>            make.bottom.equalTo(-<span class="hljs-number">5</span>)<br>            make.leading.equalTo(<span class="hljs-number">8</span>)<br>            make.trailing.equalTo(-<span class="hljs-number">8</span>)<br>        &#125;<br>        <br>    &#125;<br>    <br>    <span class="hljs-keyword">required</span> <span class="hljs-keyword">init</span>?(coder aDecoder: <span class="hljs-type">NSCoder</span>) &#123;<br>        <span class="hljs-built_in">fatalError</span>(<span class="hljs-string">"init(coder:) has not been implemented"</span>)<br>    &#125;<br>  <br>    <span class="hljs-keyword">var</span> model:<span class="hljs-type">Model!</span> &#123;<br>        <span class="hljs-keyword">didSet</span>&#123;<br>            <span class="hljs-keyword">self</span>.showLabel.text = <span class="hljs-string">"line"</span> + <span class="hljs-type">String</span>(model.id)<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p><strong>MVVM</strong></p>
+</li>
+</ul>
+<figure class="hljs highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs swift"><span class="hljs-comment">// ViewModel</span><br><span class="hljs-type">Struct</span> <span class="hljs-type">ViewModel</span>&#123;<br>  <span class="hljs-keyword">let</span> showTxt:<span class="hljs-type">String!</span><br>  <br>  <span class="hljs-keyword">init</span>(model:<span class="hljs-type">Model</span>)&#123;<br>    <span class="hljs-keyword">self</span>.showTxt = <span class="hljs-string">"line"</span> + <span class="hljs-type">String</span>(model.id)<br>  &#125;<br>&#125;<br><br><span class="hljs-comment">// TableViewCell</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CustomTableViewCell</span>: <span class="hljs-title">UITableViewCell</span> </span>&#123;<br>    <br>    <span class="hljs-keyword">let</span> showLabel = <span class="hljs-type">UILabel</span>()<br>    <br>    <span class="hljs-keyword">override</span> <span class="hljs-keyword">init</span>(style: <span class="hljs-type">UITableViewCell</span>.<span class="hljs-type">CellStyle</span>, reuseIdentifier: <span class="hljs-type">String?</span>) &#123;<br>        <span class="hljs-keyword">super</span>.<span class="hljs-keyword">init</span>(style: style, reuseIdentifier: reuseIdentifier)<br>        <br>        showLabel.textColor = rgbColor(r: <span class="hljs-number">183</span>, g: <span class="hljs-number">123</span>, b: <span class="hljs-number">58</span>)<br>        showLabel.font = <span class="hljs-type">UIFont</span>.systemFont(ofSize: <span class="hljs-number">12</span>)<br>       <br>        <span class="hljs-keyword">self</span>.contentView.addSubview(showLabel)<br>        showLabel.snp.makeConstraints &#123; (make) <span class="hljs-keyword">in</span><br>            make.top.equalTo(<span class="hljs-number">10</span>)<br>            make.bottom.equalTo(-<span class="hljs-number">5</span>)<br>            make.leading.equalTo(<span class="hljs-number">8</span>)<br>            make.trailing.equalTo(-<span class="hljs-number">8</span>)<br>        &#125;<br>        <br>    &#125;<br>    <br>    <span class="hljs-keyword">required</span> <span class="hljs-keyword">init</span>?(coder aDecoder: <span class="hljs-type">NSCoder</span>) &#123;<br>        <span class="hljs-built_in">fatalError</span>(<span class="hljs-string">"init(coder:) has not been implemented"</span>)<br>    &#125;<br>  <br>    <span class="hljs-keyword">var</span> viewModel:<span class="hljs-type">ViewModel!</span> &#123;<br>        <span class="hljs-keyword">didSet</span>&#123;<br>            <span class="hljs-keyword">self</span>.showLabel.text = viewModel.showTxt<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>Obviously, the biggest difference is in <em>MVC</em>, we write the code which is for dealling with the data in the View code, but in <em>MVVM</em>, we do the same operation in the ViewModel code, exactly when the viewModel is initialized with a model.</p>
+<p>We may can not get the adavantage of using <em>MVVM</em>, but if there are several parameters that we need to deal with, and we write all these code in <em>MVC</em>, it may be a bit mess. However, in <em>MVVM</em>, the viewModel is like a bridge between Model and View, we can make our code much more clear and easier to be understood by using <em>MVVM</em>.</p>
+
+    </main>
+    <footer class="post-footer">
+      
+    </footer>
+  </article>
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2019/05/05/hello-world/" rel="next" title="Hello World"><i class="fas fa-angle-left"></i><span class="nav-title">Hello World</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+    </div>
+  </nav>
+  
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="Search" class="form-control">
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/avatar.png" alt="Nyankun">
+  
+  <h1 class="author-name">Nyankun</h1>
+  <h2 class="author-description"></h2>
+  <div class="site-count">
+    
+    
+    
+    
+    <div class="archives-count count-block">
+      <div class="site-count-title">Archives</div>
+      <div><a href="/archives/">2</a></div>
+    </div>
+    
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>Table of Contents</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Example"><span class="toc-text">Example</span></a></li></ol></div>
+    </div>
+    
+    
+    
+    <hr>
+    <div class="social-link sidebar-item">
+      <div><i class="far fa-address-card"></i>Social Links<p></p></div>
+      <ul>
+        
+        <li><i class="fas fa-envelope"></i><a href="mailto:youremail@youremailhost" target="_blank">E-Mail</a></li>
+        
+        <li><i class="fab fa-github"></i><a href="https://github.com/" target="_blank">GitHub</a></li>
+        
+        <li><i class="fab fa-weibo"></i><a href="https://weibo.com/" target="_blank">Weibo</a></li>
+        
+      </ul>
+    </div>
+    
+    
+    <hr>
+    <div class="blogroll sidebar-item">
+      <div><i class="fas fa-link"></i>Blogroll</div>
+      <ul>
+        
+        <li><i class="fas fa-link"></i><a href="https://github.com/" target="_blank">GitHub</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://developer.mozilla.org/" target="_blank">MDN</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://mozilla.github.io/nunjucks/" target="_blank">Nunjucks</a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="Back to Top"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">Nyankun</span><span class="year"><i class="far fa-copyright"></i>2019</span>
+        </div>
+        
+        <div class="busuanzi">
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="Site Visit Count" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="Site User Count" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="Page Click Count" aria-hidden="false"></span></span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          Proudly Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> | Theme is <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

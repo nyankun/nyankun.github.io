@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-06-17T02:47:37.251Z</updated>
+  <updated>2019-06-17T03:06:53.695Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -18,20 +18,14 @@
   
   <entry>
     <title>MVC to MVVM ( I )</title>
-    <link href="http://yoursite.com/2019/06/13/MVC%20to%20MVVM(I)/"/>
-    <id>http://yoursite.com/2019/06/13/MVC to MVVM(I)/</id>
-    <published>2019-06-13T04:05:20.172Z</published>
-    <updated>2019-06-17T02:47:37.251Z</updated>
+    <link href="http://yoursite.com/2019/06/17/MVC%20to%20MVVM(I)/"/>
+    <id>http://yoursite.com/2019/06/17/MVC to MVVM(I)/</id>
+    <published>2019-06-17T02:48:23.000Z</published>
+    <updated>2019-06-17T03:06:53.695Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;p&gt;###I’m not sure if there would be a second episode (x&lt;br&gt;I have been using MVC for three years since I learned iOS development. However,
-        
-      
+      &lt;p&gt; I’m not sure if there would be a second episode (x&lt;br&gt;I have been using MVC for three years since I learned iOS development. However, I tried to turn to MVVM these days, which makes our project structure more clearly.&lt;br&gt;
     
     </summary>
     
